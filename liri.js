@@ -8,7 +8,7 @@ require('dotenv').config()
 var Spotify = require('node-spotify-api');
 var twitter = require('twitter');
 var request = require('request');
-var omdb = require('omdb');
+// var omdb = require('omdb');
 var keys = require('./keys.js')
 
 // TWITTER ===========================
@@ -65,6 +65,7 @@ if (process.argv[2] === "spotify-this-song") {
     });
 }
 // OMBD ===============================
+/*
 if (process.argv[2] === "movie-this") {
     var movie = process.argv[3] ? process.argv[3] : "Mr. Nobody";
     var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
@@ -99,4 +100,4 @@ if (process.argv[2] === "do-what-it-says") {
         var dataArr = data.split(",");
 
     });
-};
+}; */
