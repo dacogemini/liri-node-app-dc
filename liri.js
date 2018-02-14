@@ -14,7 +14,7 @@ var keys = require('./keys.js')
 // TWITTER ===========================
 if (process.argv[2] === "my-tweets") {
 
-    var client = new twitter(keys.twitter);
+    var client = new Twitter(keys.twitter);
 
     var params = {
         screen_name: 'tercera_casa'
