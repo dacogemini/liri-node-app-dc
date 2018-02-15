@@ -37,6 +37,8 @@ if (process.argv[2] === "my-tweets") {
     });
 }
 // SPOTIFY ====================================
+function spotify () {  // Reusing Code -- Template
+
 if (process.argv[2] === "spotify-this-song") {
     var songTitle = process.argv[3] ? process.argv[3] : "'The Sign' by Ace of Base";
     var spotify = new Spotify(keys.spotify);
@@ -64,26 +66,30 @@ if (process.argv[2] === "spotify-this-song") {
         }
     });
 }
+}
+spotify(); // A function runs where it is placed
 // OMBD ===============================
-/*
+
 if (process.argv[2] === "movie-this") {
     var movie = process.argv[3] ? process.argv[3] : "Mr. Nobody";
     var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
     var request = require("request");
     request(queryUrl, function (error, response, body) {
 
-        if (!error && response.statusCode === 200) {
-
-            var OMDBResults =
-                "Year: " + JSON.parse(body).Year + "\r\n" +
-                "IMDB Rating: " + JSON.parse(body).imdbRating + "\r\n" +
-                "Rotten Tomatoes Rating: " + JSON.parse(body).Ratings[1].Value + "\r\n" +
-                "Country: " + JSON.parse(body).Country + "\r\n" +
-                "Language: " + JSON.parse(body).Language + "\r\n" +
-                "Plot: " + JSON.parse(body).Plot + "\r\n" +
-                "Actors: " + JSON.parse(body).Actors + "\r\n" +
-                "-------------------------------------------------------------" + "\r\n";
-            console.log(OMDBResults);
+        if (error) {
+            console.log(error);
+        } 
+        else  {
+            
+            console.log("Year: " + JSON.parse(body).Year + "\r\n");
+            console.log("IMDB Rating: " + JSON.parse(body).imdbRating + "\r\n");
+            console.log("Rotten Tomatoes Rating: " + JSON.parse(body).Ratings[1].Value + "\r\n")
+            console.log("Country: " + JSON.parse(body).Country + "\r\n");
+            console.log("Language: " + JSON.parse(body).Language + "\r\n");
+            console.log("Plot: " + JSON.parse(body).Plot + "\r\n");
+            console.log("Actors: " + JSON.parse(body).Actors + "\r\n");
+            console.log("-------------------------------------------------------------" + "\r\n");
+    
 
         };
     });
@@ -97,7 +103,11 @@ if (process.argv[2] === "do-what-it-says") {
         }
         console.log(data);
 
-        var dataArr = data.split(",");
-
+        var dataArr = data.split(","); // Random txt
+            console.log(dataArr);
+    
+            process.argv[2] = dataArr[0]; 
+            process.argv[3] = dataArr[1];
+            spotify();
     });
-}; */
+};
