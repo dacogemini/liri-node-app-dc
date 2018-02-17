@@ -8,13 +8,13 @@ require('dotenv').config()
 var Spotify = require('node-spotify-api');
 var twitter = require('twitter');
 var request = require('request');
-// var omdb = require('omdb');
+var omdb = require('omdb');
 var keys = require('./keys.js')
 
 // TWITTER ===========================
 if (process.argv[2] === "my-tweets") {
 
-    var client = new Twitter(keys.twitter);
+    var client = new twitter(keys.twitter);
 
     var params = {
         screen_name: 'tercera_casa'
@@ -110,8 +110,4 @@ if (process.argv[2] === "do-what-it-says") {
             process.argv[3] = dataArr[1];
             spotify();
     });
-<<<<<<< HEAD
 };
-=======
-}; */
->>>>>>> 24fb95b4cfeee7de376f9cabf179998c97a05f8c
